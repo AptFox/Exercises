@@ -1,0 +1,21 @@
+Driver Dan
+Driver Bob
+Driver Kevin
+Driver Joe
+Trip Dan 07:15 07:45 17.3
+Trip Dan 06:12 06:32 21.8
+Trip Dan 06:12 06:32 21.8
+Trip Dan 06:12 06:32 21.8
+Trip Dan 06:12 06:32 21.8
+Trip Bob 01:12 06:32 80.8
+Trip Bob 11:12 13:32 28.8
+Trip Bob 01:12 06:32 80.8
+Trip Bob 11:12 13:32 28.8
+Trip Bob 01:12 06:32 80.8
+Trip Bob 11:12 13:32 28.8
+Trip Kevin 19:12 21:32 50.8
+Trip Kevin 19:12 21:32 50.8
+Trip Kevin 19:12 21:32 50.8
+Trip Kevin 19:12 21:32 50.8
+Trip Kevin 19:12 21:32 50.8
+Trip Kevin 19:12 21:32 50.8
