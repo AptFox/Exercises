@@ -8,7 +8,7 @@ For numbers which are multiples of both 3 and 5, print "FizzBuzz" instead of the
 public class FizzBuzz {
 
 	public static void main(String[] args) {
-		for(int i=1; i<101; i++) {
+		for(int i=1; i<=100; i++) {
 			/*Solution uses the conditional or ternary operator to make decisions instead of if statements.
 			  It's essentially one big assignment inside of a print statement. Whatever the return become is
 			  what's printed to the console. 
