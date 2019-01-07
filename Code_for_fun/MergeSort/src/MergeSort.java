@@ -13,16 +13,22 @@ public class MergeSort {
 	
 	public static List<Integer> mergeSort(List<Integer> intList) {
 		int arraySize = intList.size();
-		List<Integer> leftList, rightList = new ArrayList<Integer>();
+		//List<Integer> mergeList = new ArrayList<Integer>();
+		List<Integer> leftList = new ArrayList<Integer>();
+		List<Integer> rightList = new ArrayList<Integer>();
+		
+		leftList.addAll(intList);
+		rightList.addAll(intList);
 		
 		if(arraySize > 1) {
 			int indexOfMiddleValue = arraySize/2;
-			leftList = mergeSort(intList.subList(0, indexOfMiddleValue));
-			rightList = mergeSort(intList.subList(indexOfMiddleValue, arraySize-1));
-		}else {
+			leftList = mergeSort(leftList.subList(0, indexOfMiddleValue));
+			rightList = mergeSort(rightList.subList(indexOfMiddleValue, arraySize-1));
+		}else{
 			return intList;
 		}
 		
+		//mergeList.addAll(leftList);
 		if(leftList.isEmpty() || rightList.isEmpty()) {
 			leftList.addAll(rightList);
 			return leftList;
