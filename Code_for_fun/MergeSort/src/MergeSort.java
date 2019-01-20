@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class MergeSort {
@@ -38,21 +39,11 @@ public class MergeSort {
 	}
 	
 	public static List<Integer> merge (List<Integer> leftList, List<Integer> rightList){
-		int leftIndex = 0;
-		int rightIndex = 0;
-		List<Integer> mergedList = new ArrayList<Integer>(); 
-		while(leftIndex < leftList.size() && rightIndex < rightList.size()) {
-			//The problem lives here one the elements always gets dropped because 
-			//one side of the while statement becomes false after adding an element to the mergedList
-			//I need a way of adding both elements. 
-			//due to the dropping this method currently keeps dropping values until only the largest remains. 
-			if(leftList.get(leftIndex) > rightList.get(rightIndex)) {
-				mergedList.add(leftList.get(leftIndex));
-				leftIndex++;
-			}else {
-				mergedList.add(rightList.get(rightIndex));
-				rightIndex++;
-			}
+		List<Integer> mergedList = new ArrayList<Integer>();	
+		leftList.addAll(rightList);
+		Collections.sort(leftList);
+		for(int value : leftList) {
+			mergedList.add(value);
 		}
 		return mergedList;
 	}
