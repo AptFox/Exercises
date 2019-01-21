@@ -17,20 +17,24 @@ public class LongestCommonSubsequence {
 	public static void main(String[] args) {
 		String S1 = "ABAZDC";
 		String S2 = "BACBAD";
-		
+
+		System.out.println(findLongestCommonSubsequence(S1, S2));
+	}
+	
+	public static String findLongestCommonSubsequence(String S1, String S2) {
 		List<String> subSequences = new ArrayList<String>();
 		for(int i = 0; i < S1.length(); i++ ) {
 			String subStringOfS1 = S1.substring(i);
 			subSequences.add(findSubsequence(subStringOfS1, S2, 0));
 		}
 		int longestStringIndex = findLongestStringInList(subSequences);
-		System.out.println(subSequences.get(longestStringIndex));
+		return subSequences.get(longestStringIndex); 
 	}
 	
-	public static String findSubsequence(String S1, String S2, int startingIndex) {
+	private static String findSubsequence(String S1, String S2, int startingIndex) {
 		// return when substring of S2 is empty
-		if(S2.isEmpty() || startingIndex > S1.length()-1) {
-			return S2;
+		if(S2.isEmpty() || startingIndex == S1.length()) {
+			return "";
 		}
 		
 		// Take a char of S1
@@ -38,15 +42,23 @@ public class LongestCommonSubsequence {
 		// Find that char in S2
 		int indexOfCharInS1 = S2.indexOf(charOfS1);
 		// Take substring of S2 at position of found char,
-		String subStringOfS2 = S2.substring(indexOfCharInS1);
-		// increase index of S1
-		// repeat
-
-		return findSubsequence(S1, subStringOfS2, startingIndex++);
-		
+		if(indexOfCharInS1 == -1) {
+			if(startingIndex < S1.length()-1) {
+				startingIndex+=1;
+				return findSubsequence(S1, S2,startingIndex);
+			}else {
+				return "";
+			}
+		}else {
+			String subStringOfS2 = S2.substring(indexOfCharInS1);
+			// increase index of S1
+			// repeat
+			startingIndex+=1;
+			return charOfS1+findSubsequence(S1, subStringOfS2,startingIndex);
+		}
 	}
 	
-	public static int findLongestStringInList(List<String> substringList) {
+	private static int findLongestStringInList(List<String> substringList) {
 		int indexOfLongestStringInList = 0;
 		int longestStringLength = 0;
 		
