@@ -15,8 +15,8 @@ import java.util.List;
 public class LongestCommonSubsequence {
 
 	public static void main(String[] args) {
-		String S1 = "ABAZDC";
-		String S2 = "BACBAD";
+		String S1 = "AGGTAB";
+		String S2 = "GXTXAYB";
 
 		System.out.println(findLongestCommonSubsequence(S1, S2));
 	}
@@ -50,7 +50,11 @@ public class LongestCommonSubsequence {
 				return "";
 			}
 		}else {
-			String subStringOfS2 = S2.substring(indexOfCharInS1);
+			String subStringOfS2 = S2.substring(indexOfCharInS1+1);
+			// Substring returns an inclusive string
+			// The substring still contains the last matched char
+			// Substring should exclude the last matched char
+			
 			// increase index of S1
 			// repeat
 			startingIndex+=1;
