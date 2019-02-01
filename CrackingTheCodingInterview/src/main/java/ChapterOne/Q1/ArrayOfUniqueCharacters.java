@@ -1,7 +1,7 @@
 /*
  * Prompt: Implement an algorithm to determine if a string has all unique characters
  */
-package main.java.ChapterOne;
+package main.java.ChapterOne.Q1;
 
 import java.util.ArrayList;
 import java.util.List;

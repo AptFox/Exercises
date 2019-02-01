@@ -1,10 +1,10 @@
-package test.java.ChapterOne;
+package test.java.ChapterOne.Q1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.java.ChapterOne.ArrayOfUniqueCharacters;
+import main.java.ChapterOne.Q1.ArrayOfUniqueCharacters;
 
 class ArrayOfUniqueCharactersTest {
 
