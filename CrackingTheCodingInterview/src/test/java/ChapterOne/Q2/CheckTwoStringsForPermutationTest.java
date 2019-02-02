@@ -1,3 +1,6 @@
+/*
+ * Prompt: Given two strings, write a method to decide if one is a permutation of the other
+ */
 package test.java.ChapterOne.Q2;
 
 import static org.junit.jupiter.api.Assertions.*;
