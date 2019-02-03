@@ -41,20 +41,26 @@ class PencilTest {
 		assertEquals(10, degradingPencil.getDurability());
 	}
 	
-	 //The pencil will be able to write only a limited number of characters before it goes dull. 
-	//After it goes dull, every character it is directed to write will appear as a space.
+	 //The pencil writes spaces after durability reached zero. 
 	@Test
 	public void whenPencilDurabilityRunsOutSpacesAreWrittenForEachChar() {
 		Pencil degradingPencil = new Pencil(10);
 		assertEquals("0123456789      ", degradingPencil.write("0123456789ABCDEF"));
 	}
 	
-	//Writing spaces and newlines expends no graphite, therefore "writing" these characters should 
-	//not affect the pencil point.
+	//Writing spaces should not affect durability
 	@Test
 	public void whenPencilWritesSpacesDurabilityDoesNotDecrease() {
 		Pencil degradingPencil = new Pencil(10);
 		degradingPencil.write("     ");
+		assertEquals(10, degradingPencil.getDurability());
+	}
+	
+	//Writing newlines should not affect durability
+	@Test
+	public void whenPencilWritesNewLinesDurabilityDoesNotDecrease() {
+		Pencil degradingPencil = new Pencil(10);
+		degradingPencil.write("\n\n");
 		assertEquals(10, degradingPencil.getDurability());
 	}
 }
