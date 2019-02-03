@@ -79,4 +79,12 @@ class PencilTest {
 		degradingPencil.write("ABC");
 		assertEquals(4, degradingPencil.getDurability());
 	}
+	
+	@Test
+	public void whenPencilWritesUpperCaseDurabilityDecreasesByTwo_MixedCaseExample() {
+		Pencil degradingPencil = new Pencil(4);
+		assertEquals("text", degradingPencil.write("text"));
+		degradingPencil = new Pencil(4);
+		assertEquals("Tex ", degradingPencil.write("Text"));
+	}
 }
