@@ -48,4 +48,13 @@ class PencilTest {
 		Pencil degradingPencil = new Pencil(10);
 		assertEquals("0123456789      ", degradingPencil.write("0123456789ABCDEF"));
 	}
+	
+	//Writing spaces and newlines expends no graphite, therefore "writing" these characters should 
+	//not affect the pencil point.
+	@Test
+	public void whenPencilWritesSpacesDurabilityDoesNotDecrease() {
+		Pencil degradingPencil = new Pencil(10);
+		degradingPencil.write("     ");
+		assertEquals(10, degradingPencil.getDurability());
+	}
 }

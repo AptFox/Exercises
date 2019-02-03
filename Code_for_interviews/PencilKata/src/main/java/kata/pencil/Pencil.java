@@ -14,7 +14,7 @@ public class Pencil {
 	public String write(String stringToWrite) {
 		String writtenString = "";
 		for (char ch : stringToWrite.toCharArray()) {
-			if (durability > 0) {
+			if (durability > 0 && ch != ' ') {
 				durability -=1;
 				writtenString += ch;
 			}else {
