@@ -166,4 +166,10 @@ class PencilTest {
 		Pencil eraserDegradingPencil = new Pencil(10,10,10);
 		assertEquals("erase_t          ",eraserDegradingPencil.erase("erase_this_string", "erase_this_string"));
 	}
+	
+	@Test
+	public void whenEraserDurabilityIsZeroEraserNoLongerErases_StringWithSpaces() {
+		Pencil eraserDegradingPencil = new Pencil(10,10,3);
+		assertEquals("Buffalo B   ",eraserDegradingPencil.erase("Bill", "Buffalo Bill"));
+	}
 }
