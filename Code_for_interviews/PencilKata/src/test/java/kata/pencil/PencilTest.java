@@ -64,11 +64,19 @@ class PencilTest {
 		assertEquals(10, degradingPencil.getDurability());
 	}
 	
-	//Writing newlines should not affect durability
+	//Lowercase letters should degrade the pencil point by a value of one
 	@Test
 	public void whenPencilWritesLowerCaseDurabilityDecreasesByOne() {
 		Pencil degradingPencil = new Pencil(10);
 		degradingPencil.write("abc");
 		assertEquals(7, degradingPencil.getDurability());
+	}
+	
+	//capital letters should degrade the pencil point by two
+	@Test
+	public void whenPencilWritesUpperCaseDurabilityDecreasesByTwo() {
+		Pencil degradingPencil = new Pencil(10);
+		degradingPencil.write("ABC");
+		assertEquals(4, degradingPencil.getDurability());
 	}
 }

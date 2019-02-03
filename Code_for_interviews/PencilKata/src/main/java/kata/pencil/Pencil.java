@@ -15,7 +15,7 @@ public class Pencil {
 		String writtenString = "";
 		for (char ch : stringToWrite.toCharArray()) {
 			if (durability > 0 && (ch != '\n' && ch != ' ')) {
-				durability -=1;
+				durability -= Character.isUpperCase(ch) ? 2 : 1;
 				writtenString += ch;
 			}else {
 				writtenString+=" ";
