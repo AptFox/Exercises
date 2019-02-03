@@ -172,4 +172,14 @@ class PencilTest {
 		Pencil eraserDegradingPencil = new Pencil(10,10,3);
 		assertEquals("Buffalo B   ",eraserDegradingPencil.erase("Bill", "Buffalo Bill"));
 	}
+	
+	/*
+	 * Editing 
+	 */
+	@Test
+	public void pencilCanReplaceSpacesInStringWithText() {
+		String expected = "An onion a day keeps the doctor away";
+		String actual = pencil.edit("onion", "An       a day keeps the doctor away");
+		assertEquals(expected,actual);
+	}
 }

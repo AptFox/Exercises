@@ -80,4 +80,16 @@ public class Pencil {
 	public int getEraserDurability() {
 		return eraserDurability;
 	}
+	
+	//this method will insert beginning at the first index of two or more spaces
+	public String edit(String stringToInsert, String stringToEdit) {
+		int insertStartPosition = stringToEdit.indexOf("  ")+1;
+		char [] stringToEditArray = stringToEdit.toCharArray();
+		char [] stringToInsertArray = stringToInsert.toCharArray();
+		for(int i = insertStartPosition, j=0; j < stringToInsert.length(); i++, j++) {
+			stringToEditArray[i] = stringToInsertArray[j];
+		}
+		
+		return new String (stringToEditArray);
+	}
 }
