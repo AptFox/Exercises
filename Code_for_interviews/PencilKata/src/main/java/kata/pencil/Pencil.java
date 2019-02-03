@@ -12,7 +12,16 @@ public class Pencil {
 	}
 
 	public String write(String stringToWrite) {
-		return stringToWrite;
+		String writtenString = "";
+		for (char ch : stringToWrite.toCharArray()) {
+			if (durability > 0) {
+				durability -=1;
+				writtenString += ch;
+			}else {
+				writtenString+=" ";
+			}
+		}
+		return writtenString;
 	}
 
 	public String append(String originalString, String stringToWrite) {

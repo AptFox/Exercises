@@ -12,7 +12,7 @@ class PencilTest {
 	
 	@BeforeEach
 	public void setup() {
-		pencil = new Pencil();
+		pencil = new Pencil(35);
 	}
 	
 	/*
@@ -39,5 +39,13 @@ class PencilTest {
 	public void pencilCanBeCreatedWithAValueForDurability() {
 		Pencil degradingPencil = new Pencil(10);
 		assertEquals(10, degradingPencil.getDurability());
+	}
+	
+	 //The pencil will be able to write only a limited number of characters before it goes dull. 
+	//After it goes dull, every character it is directed to write will appear as a space.
+	@Test
+	public void whenPencilDurabilityRunsOutSpacesAreWrittenForEachChar() {
+		Pencil degradingPencil = new Pencil(10);
+		assertEquals("0123456789      ", degradingPencil.write("0123456789ABCDEF"));
 	}
 }
