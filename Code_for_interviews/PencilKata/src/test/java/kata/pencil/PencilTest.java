@@ -159,4 +159,11 @@ class PencilTest {
 		eraserDegradingPencil.erase("AAAAA", "AAAAA     AAAAA");
 		assertEquals(5,eraserDegradingPencil.getEraserDurability());
 	}
+	
+	//Once the eraser durability is zero, the eraser is worn out and can no longer erase.
+	@Test
+	public void whenEraserDurabilityIsZeroEraserNoLongerErases() {
+		Pencil eraserDegradingPencil = new Pencil(10,10,10);
+		assertEquals("erase_t          ",eraserDegradingPencil.erase("erase_this_string", "erase_this_string"));
+	}
 }

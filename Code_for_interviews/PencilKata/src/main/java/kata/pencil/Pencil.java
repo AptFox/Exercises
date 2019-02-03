@@ -14,6 +14,7 @@ public class Pencil {
 		this.pointDurability = pointDurability;
 		this.originalPointDurability = pointDurability;
 		this.length = 10;
+		this.eraserDurability = 10;
 	}
 	
 	public Pencil(int pointDurability, int pencilLength) {
@@ -52,13 +53,16 @@ public class Pencil {
 
 	public String erase(String removalString, String targetString) {
 		String modifiedString;
-		String emptySpaceReplacement = "";
-		int lastIndexOf = targetString.lastIndexOf(removalString);
-		for(char ch : removalString.toCharArray()) {
-			emptySpaceReplacement+=" ";
-			if(ch != ' ') eraserDurability-=1;
+		int lastIndexOfStringToBeRemoved = targetString.lastIndexOf(removalString);
+		char[] stringToEraseArray = removalString.toCharArray();
+		for(int i = stringToEraseArray.length-1; i > -1; i--) {
+			if(stringToEraseArray[i] != ' ' && eraserDurability != 0) {
+				eraserDurability-=1;
+				stringToEraseArray[i] = ' ';
+			}
 		}
-		modifiedString = targetString.substring(0, lastIndexOf) + emptySpaceReplacement + targetString.substring(lastIndexOf+removalString.length());
+		String erasedString = new String(stringToEraseArray);
+		modifiedString = targetString.substring(0, lastIndexOfStringToBeRemoved) + erasedString + targetString.substring(lastIndexOfStringToBeRemoved+removalString.length());
 		return modifiedString;
 	}
 
