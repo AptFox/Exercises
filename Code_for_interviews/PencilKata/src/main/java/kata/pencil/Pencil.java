@@ -1,11 +1,26 @@
 package main.java.kata.pencil;
 
 public class Pencil {
+	/*
+	 * Constants
+	 */
+	private static final char CHARACTER_SPACE = ' ';
+	private static final char CHARACTER_NEWLINE = '\n';
+	private static final char CHARACTER_AT = '@';
+	private static final String SPACE_STRING =" ";
+	private static final String DOUBLE_SPACE_STRING = "  ";
+	
+	/*
+	 * Member variables
+	 */
 	private int pointDurability;
 	private int originalPointDurability;
 	private int length;
 	private int eraserDurability;
 	
+	/*
+	 * Constructors
+	 */
 	public Pencil() {
 		
 	}
@@ -29,15 +44,18 @@ public class Pencil {
 		this.length = pencilLength;
 		this.eraserDurability = eraserDurability;
 	}
-
+	
+	/*
+	 * Methods
+	 */
 	public String write(String stringToWrite) {
-		String writtenString = "";
+		String writtenString = new String();
 		for (char ch : stringToWrite.toCharArray()) {
-			if (pointDurability > 0 && (ch != '\n' && ch != ' ')) {
+			if (pointDurability > 0 && (ch != CHARACTER_NEWLINE && ch != CHARACTER_SPACE)) {
 				pointDurability -= Character.isUpperCase(ch) ? 2 : 1;
 				writtenString += ch;
 			}else {
-				writtenString+=" ";
+				writtenString+=SPACE_STRING;
 			}
 		}
 		return writtenString;
@@ -47,18 +65,14 @@ public class Pencil {
 		return originalString+write(stringToWrite);
 	}
 
-	public int getDurability() {
-		return pointDurability;
-	}
-
 	public String erase(String removalString, String targetString) {
 		String modifiedString;
 		int lastIndexOfStringToBeRemoved = targetString.lastIndexOf(removalString);
 		char[] stringToEraseArray = removalString.toCharArray();
 		for(int i = stringToEraseArray.length-1; i > -1; i--) {
-			if(stringToEraseArray[i] != ' ' && eraserDurability != 0) {
+			if(stringToEraseArray[i] != CHARACTER_SPACE && eraserDurability != 0) {
 				eraserDurability-=1;
-				stringToEraseArray[i] = ' ';
+				stringToEraseArray[i] = CHARACTER_SPACE;
 			}
 		}
 		String erasedString = new String(stringToEraseArray);
@@ -72,27 +86,35 @@ public class Pencil {
 			length-=1;
 		}
 	}
-
+	
+	//this method will insert beginning at the first index of two or more spaces
+	public String edit(String stringToInsert, String stringToEdit) {
+		int insertStartPosition = stringToEdit.indexOf(DOUBLE_SPACE_STRING)+1;
+		char [] stringToEditArray = stringToEdit.toCharArray();
+		char [] stringToInsertArray = stringToInsert.toCharArray();
+		for(int i = insertStartPosition, j=0; j < stringToInsert.length(); i++, j++) {
+			if(stringToEditArray[i] != CHARACTER_SPACE) {
+				stringToEditArray[i] = CHARACTER_AT;
+			}else {
+				stringToEditArray[i] = stringToInsertArray[j];
+			}
+		}
+		return new String (stringToEditArray);
+	}
+	
+	/*
+	 * Getters & Setters
+	 */
+	
+	public int getDurability() {
+		return pointDurability;
+	}
+	
 	public int getLength() {
 		return length;
 	}
 
 	public int getEraserDurability() {
 		return eraserDurability;
-	}
-	
-	//this method will insert beginning at the first index of two or more spaces
-	public String edit(String stringToInsert, String stringToEdit) {
-		int insertStartPosition = stringToEdit.indexOf("  ")+1;
-		char [] stringToEditArray = stringToEdit.toCharArray();
-		char [] stringToInsertArray = stringToInsert.toCharArray();
-		for(int i = insertStartPosition, j=0; j < stringToInsert.length(); i++, j++) {
-			if(stringToEditArray[i] != ' ') {
-				stringToEditArray[i] = '@';
-			}else {
-				stringToEditArray[i] = stringToInsertArray[j];
-			}
-		}
-		return new String (stringToEditArray);
 	}
 }
