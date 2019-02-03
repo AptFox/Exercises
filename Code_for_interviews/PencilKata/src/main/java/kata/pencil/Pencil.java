@@ -1,27 +1,35 @@
 package main.java.kata.pencil;
 
 public class Pencil {
-	private int durability;
-	private int originalDurability;
+	private int pointDurability;
+	private int originalPointDurability;
 	private int length;
+	private int eraserDurability;
 	
-	public Pencil(int durability) {
-		this.durability = durability;
-		this.originalDurability = durability;
+	public Pencil(int pointDurability) {
+		this.pointDurability = pointDurability;
+		this.originalPointDurability = pointDurability;
 		this.length = 10;
 	}
 	
-	public Pencil(int durability, int length) {
-		this.durability = durability;
-		this.originalDurability = durability;
-		this.length = length;
+	public Pencil(int pointDurability, int pencilLength) {
+		this.pointDurability = pointDurability;
+		this.originalPointDurability = pointDurability;
+		this.length = pencilLength;
+	}
+
+	public Pencil(int pointDurability, int pencilLength, int eraserDurability) {
+		this.pointDurability = pointDurability;
+		this.originalPointDurability = pointDurability;
+		this.length = pencilLength;
+		this.eraserDurability = eraserDurability;
 	}
 
 	public String write(String stringToWrite) {
 		String writtenString = "";
 		for (char ch : stringToWrite.toCharArray()) {
-			if (durability > 0 && (ch != '\n' && ch != ' ')) {
-				durability -= Character.isUpperCase(ch) ? 2 : 1;
+			if (pointDurability > 0 && (ch != '\n' && ch != ' ')) {
+				pointDurability -= Character.isUpperCase(ch) ? 2 : 1;
 				writtenString += ch;
 			}else {
 				writtenString+=" ";
@@ -35,7 +43,7 @@ public class Pencil {
 	}
 
 	public int getDurability() {
-		return durability;
+		return pointDurability;
 	}
 
 	public String erase(String removalString, String targetString) {
@@ -53,12 +61,16 @@ public class Pencil {
 
 	public void sharpen() {
 		if(length > 0) {
-			durability = originalDurability;
+			pointDurability = originalPointDurability;
 			length-=1;
 		}
 	}
 
 	public int getLength() {
 		return length;
+	}
+
+	public int getEraserDurability() {
+		return eraserDurability;
 	}
 }

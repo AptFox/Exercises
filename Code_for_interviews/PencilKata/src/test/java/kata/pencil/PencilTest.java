@@ -135,4 +135,13 @@ class PencilTest {
 		assertEquals(expected, actual);
 	}
 	
+	/*
+	 * Eraser Degradation
+	 */
+	//When a pencil is created, it can be provided with a value for eraser durability.
+	@Test
+	public void pencilCanBeCreatedWithAValueForEraserDruability() {
+		Pencil eraserDegradingPencil = new Pencil(10,10,10);
+		assertEquals(10, eraserDegradingPencil.getEraserDurability());
+	}
 }
