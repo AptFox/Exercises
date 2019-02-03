@@ -152,4 +152,11 @@ class PencilTest {
 		eraserDegradingPencil.erase("     ", "AAAAA     AAAAA");
 		assertEquals(10,eraserDegradingPencil.getEraserDurability());
 	}
+	
+	@Test
+	public void whenEraseIsCalledEraserDurabilityDecreases() {
+		Pencil eraserDegradingPencil = new Pencil(10,10,10);
+		eraserDegradingPencil.erase("AAAAA", "AAAAA     AAAAA");
+		assertEquals(5,eraserDegradingPencil.getEraserDurability());
+	}
 }

@@ -54,12 +54,11 @@ public class Pencil {
 		String modifiedString;
 		String emptySpaceReplacement = "";
 		int lastIndexOf = targetString.lastIndexOf(removalString);
-		for(int i=0; i <removalString.length(); i++) {
+		for(char ch : removalString.toCharArray()) {
 			emptySpaceReplacement+=" ";
+			if(ch != ' ') eraserDurability-=1;
 		}
-		modifiedString = targetString.substring(0, lastIndexOf) + 
-				emptySpaceReplacement + 
-				targetString.substring(lastIndexOf+removalString.length());
+		modifiedString = targetString.substring(0, lastIndexOf) + emptySpaceReplacement + targetString.substring(lastIndexOf+removalString.length());
 		return modifiedString;
 	}
 
