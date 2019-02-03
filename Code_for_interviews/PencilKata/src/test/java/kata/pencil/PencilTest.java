@@ -63,4 +63,12 @@ class PencilTest {
 		degradingPencil.write("\n\n");
 		assertEquals(10, degradingPencil.getDurability());
 	}
+	
+	//Writing newlines should not affect durability
+	@Test
+	public void whenPencilWritesLowerCaseDurabilityDecreasesByOne() {
+		Pencil degradingPencil = new Pencil(10);
+		degradingPencil.write("abc");
+		assertEquals(7, degradingPencil.getDurability());
+	}
 }
