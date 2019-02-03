@@ -2,7 +2,7 @@ package test.java.kata.pencil;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import main.java.kata.pencil.Pencil;
@@ -16,19 +16,22 @@ class PencilTest {
 	 * "She sells sea shells", when a pencil is instructed to write " down by the sea shore" on the paper, the paper will then contain 
 	 * the entire string (i.e. "She sells sea shells down by the sea shore").
 	 */
+	private Pencil pencil;
 	
-	@Before
-	void setup() {
-		//move pencil object creation to here
+	@BeforeEach
+	public void setup() {
+		pencil = new Pencil();
 	}
 	
 	//write a string of text on a sheet of paper
 	@Test
-	void whenPencilIsPassedAStringItReturnsThatString() {
-		Pencil pencil = new Pencil();
+	public void whenPencilIsPassedAStringItReturnsThatString() {		
 		assertEquals("ABC",  pencil.write("ABC"));
 	}
 	
 	//append string to existing text on paper
-
+	@Test
+	public void whenPencilTwoStringsItReturnsACombinedString() {
+		assertEquals("She sells sea shells down by the sea shore",  pencil.append("She sells sea shells"," down by the sea shore"));
+	}
 }
