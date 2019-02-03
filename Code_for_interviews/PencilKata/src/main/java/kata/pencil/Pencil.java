@@ -3,13 +3,18 @@ package main.java.kata.pencil;
 public class Pencil {
 	private int durability;
 	private int originalDurability;
-	public Pencil() {
-		
-	}
+	private int length;
 	
 	public Pencil(int durability) {
 		this.durability = durability;
 		this.originalDurability = durability;
+		this.length = 10;
+	}
+	
+	public Pencil(int durability, int length) {
+		this.durability = durability;
+		this.originalDurability = durability;
+		this.length = length;
 	}
 
 	public String write(String stringToWrite) {
@@ -48,5 +53,9 @@ public class Pencil {
 
 	public void sharpen() {
 		durability = originalDurability;
+	}
+
+	public int getLength() {
+		return length;
 	}
 }

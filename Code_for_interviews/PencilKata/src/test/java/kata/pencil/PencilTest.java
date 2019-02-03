@@ -99,6 +99,19 @@ class PencilTest {
 		assertEquals(3, degradingPencil.getDurability());
 	}
 	
+	
+	//A pencil should also be created with an initial length value.
+	@Test
+	public void pencilCanBeCreatedWithAlengthValue() {
+		Pencil lengthyPencil = new Pencil(10,10);
+		assertEquals(10, lengthyPencil.getLength());
+	}
+	
+	//TODO The pencil's length is reduced by one each time it is sharpened.
+	
+	
+	//TODO When a pencil's length is zero, then sharpening it no longer restores its point durabliity.
+	
 	/*
 	 * Erase
 	 */
