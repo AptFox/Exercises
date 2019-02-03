@@ -182,4 +182,13 @@ class PencilTest {
 		String actual = pencil.edit("onion", "An       a day keeps the doctor away");
 		assertEquals(expected,actual);
 	}
+	
+	//Existing text on the page cannot 'shift', If the new text is longer than whitespace
+	//character collisions are represented by the "@" character.
+	@Test
+	public void pencilWillShowCharacterCollisionsWithAnAtSymbol() {
+		String expected = "An artich@k@ay keeps the doctor away";
+		String actual = pencil.edit("artichoke", "An       a day keeps the doctor away");
+		assertEquals(expected,actual);
+	}
 }

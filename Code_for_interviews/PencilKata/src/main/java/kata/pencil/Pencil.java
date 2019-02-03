@@ -87,9 +87,12 @@ public class Pencil {
 		char [] stringToEditArray = stringToEdit.toCharArray();
 		char [] stringToInsertArray = stringToInsert.toCharArray();
 		for(int i = insertStartPosition, j=0; j < stringToInsert.length(); i++, j++) {
-			stringToEditArray[i] = stringToInsertArray[j];
+			if(stringToEditArray[i] != ' ') {
+				stringToEditArray[i] = '@';
+			}else {
+				stringToEditArray[i] = stringToInsertArray[j];
+			}
 		}
-		
 		return new String (stringToEditArray);
 	}
 }
