@@ -87,4 +87,14 @@ class PencilTest {
 		degradingPencil = new Pencil(4);
 		assertEquals("Tex ", degradingPencil.write("Text"));
 	}
+	
+	/*
+	 * Erase
+	 */
+	@Test
+	public void pencilCanRemoveAStringFromAnotherString() {
+		String expected = "How much wood would a woodchuck chuck if a woodchuck could       wood?"; 
+		String actual = pencil.remove("chuck", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+		assertEquals(expected, actual);
+	}
 }

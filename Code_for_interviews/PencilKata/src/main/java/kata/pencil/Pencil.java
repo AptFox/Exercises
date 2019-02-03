@@ -31,4 +31,17 @@ public class Pencil {
 	public int getDurability() {
 		return durability;
 	}
+
+	public String remove(String removalString, String targetString) {
+		String modifiedString;
+		String emptySpaceReplacement = "";
+		int lastIndexOf = targetString.lastIndexOf(removalString);
+		for(int i=0; i <removalString.length(); i++) {
+			emptySpaceReplacement+=" ";
+		}
+		modifiedString = targetString.substring(0, lastIndexOf) + 
+				emptySpaceReplacement + 
+				targetString.substring(lastIndexOf+removalString.length());
+		return modifiedString;
+	}
 }
