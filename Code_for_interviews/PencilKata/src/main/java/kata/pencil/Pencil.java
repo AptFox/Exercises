@@ -2,13 +2,14 @@ package main.java.kata.pencil;
 
 public class Pencil {
 	private int durability;
-	
+	private int originalDurability;
 	public Pencil() {
 		
 	}
 	
 	public Pencil(int durability) {
 		this.durability = durability;
+		this.originalDurability = durability;
 	}
 
 	public String write(String stringToWrite) {
@@ -32,7 +33,7 @@ public class Pencil {
 		return durability;
 	}
 
-	public String remove(String removalString, String targetString) {
+	public String erase(String removalString, String targetString) {
 		String modifiedString;
 		String emptySpaceReplacement = "";
 		int lastIndexOf = targetString.lastIndexOf(removalString);
@@ -43,5 +44,9 @@ public class Pencil {
 				emptySpaceReplacement + 
 				targetString.substring(lastIndexOf+removalString.length());
 		return modifiedString;
+	}
+
+	public void sharpen() {
+		durability = originalDurability;
 	}
 }

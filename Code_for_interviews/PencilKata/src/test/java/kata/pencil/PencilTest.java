@@ -89,12 +89,24 @@ class PencilTest {
 	}
 	
 	/*
+	 * Sharpen
+	 */
+	@Test
+	public void whenPencilIsSharpenedDurabilityReturnsToPreviusLevel() {
+		Pencil degradingPencil = new Pencil(3);
+		degradingPencil.write("abc");
+		degradingPencil.sharpen();
+		assertEquals(3, degradingPencil.getDurability());
+	}
+	
+	/*
 	 * Erase
 	 */
 	@Test
-	public void pencilCanRemoveAStringFromAnotherString() {
+	public void pencilCanEraseAStringFromAnotherString() {
 		String expected = "How much wood would a woodchuck chuck if a woodchuck could       wood?"; 
-		String actual = pencil.remove("chuck", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+		String actual = pencil.erase("chuck", "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
 		assertEquals(expected, actual);
 	}
+	
 }
