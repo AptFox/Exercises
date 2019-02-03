@@ -92,7 +92,7 @@ class PencilTest {
 	 * Sharpen
 	 */
 	@Test
-	public void whenPencilIsSharpenedDurabilityReturnsToPreviusLevel() {
+	public void whenPencilIsSharpenedDurabilityReturnsToPreviousLevel() {
 		Pencil degradingPencil = new Pencil(3);
 		degradingPencil.write("abc");
 		degradingPencil.sharpen();
@@ -107,7 +107,13 @@ class PencilTest {
 		assertEquals(10, lengthyPencil.getLength());
 	}
 	
-	//TODO The pencil's length is reduced by one each time it is sharpened.
+	//The pencil's length is reduced by one each time it is sharpened.
+	@Test
+	public void pencilLengthIsReducedByOneWhenSharpened() {
+		Pencil lengthyPencil = new Pencil(10,10);
+		lengthyPencil.sharpen();
+		assertEquals(9, lengthyPencil.getLength());
+	}
 	
 	
 	//TODO When a pencil's length is zero, then sharpening it no longer restores its point durabliity.
