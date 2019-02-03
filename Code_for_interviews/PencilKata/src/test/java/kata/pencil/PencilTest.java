@@ -116,7 +116,14 @@ class PencilTest {
 	}
 	
 	
-	//TODO When a pencil's length is zero, then sharpening it no longer restores its point durabliity.
+	//When a pencil's length is zero, then sharpening it no longer restores its point durabliity.
+	@Test
+	public void whenPencilLengthIsZeroSharpeningDoesNotRestoreDurability() {
+		Pencil lengthyPencil = new Pencil(10,0);
+		lengthyPencil.write("abc");
+		lengthyPencil.sharpen();
+		assertEquals(7,lengthyPencil.getDurability());
+	}
 	
 	/*
 	 * Erase
