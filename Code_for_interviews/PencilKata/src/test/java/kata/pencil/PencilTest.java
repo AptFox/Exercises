@@ -144,4 +144,12 @@ class PencilTest {
 		Pencil eraserDegradingPencil = new Pencil(10,10,10);
 		assertEquals(10, eraserDegradingPencil.getEraserDurability());
 	}
+	
+	//all characters except for white space should degrade the eraser by a value of one.
+	@Test
+	public void whenEraseIsCalledOnWhiteSpaceEraserDurabilityDoesNotDecrease() {
+		Pencil eraserDegradingPencil = new Pencil(10,10,10);
+		eraserDegradingPencil.erase("     ", "AAAAA     AAAAA");
+		assertEquals(10,eraserDegradingPencil.getEraserDurability());
+	}
 }
