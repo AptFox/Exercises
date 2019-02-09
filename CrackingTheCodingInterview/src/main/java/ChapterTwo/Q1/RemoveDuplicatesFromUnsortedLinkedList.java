@@ -4,22 +4,18 @@
 
 package main.java.ChapterTwo.Q1;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class RemoveDuplicatesFromUnsortedLinkedList {
 	public static List<Integer> removeDuplicates(List<Integer> inputList){
-		int intitalListSize = inputList.size()-1;
-		List<Integer> uniqueElements = new LinkedList<Integer>();
-		for(int i=0; i < intitalListSize; i++ ) {
-			if(uniqueElements.contains(inputList.get(i))) {
-				inputList.remove(i);
-				i=0;
-			}
-			else {
-				uniqueElements.add(inputList.remove(i));
-			}
-		}
-		return inputList;
+		Set<Integer> uniqueElements = new HashSet <Integer>();
+		uniqueElements.addAll(inputList);
+		
+		List <Integer> listOfUniqueElms = new LinkedList<Integer>();
+		listOfUniqueElms.addAll(uniqueElements);
+		return listOfUniqueElms;
 	}
 }

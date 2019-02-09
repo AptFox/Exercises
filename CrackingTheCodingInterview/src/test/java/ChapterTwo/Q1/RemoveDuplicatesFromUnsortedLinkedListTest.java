@@ -19,5 +19,21 @@ class RemoveDuplicatesFromUnsortedLinkedListTest {
 		List<Integer> actual = RemoveDuplicatesFromUnsortedLinkedList.removeDuplicates(inputList);
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	void testRemoveDuplicates_1() {
+		List<Integer> inputList = new LinkedList<Integer>(Arrays.asList(2,3,4,5,2,3,4,5));
+		List<Integer> expected = new LinkedList<Integer>(Arrays.asList(2,3,4,5));
+		List<Integer> actual = RemoveDuplicatesFromUnsortedLinkedList.removeDuplicates(inputList);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void testRemoveDuplicates_2() {
+		List<Integer> inputList = new LinkedList<Integer>(Arrays.asList(2,3,4,5,2,2,2,2,2,2,3,4,5));
+		List<Integer> expected = new LinkedList<Integer>(Arrays.asList(2,3,4,5));
+		List<Integer> actual = RemoveDuplicatesFromUnsortedLinkedList.removeDuplicates(inputList);
+		assertEquals(expected, actual);
+	}
 
 }
