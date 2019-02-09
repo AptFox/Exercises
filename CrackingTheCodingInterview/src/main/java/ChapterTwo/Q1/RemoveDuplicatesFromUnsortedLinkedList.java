@@ -10,12 +10,22 @@ import java.util.List;
 import java.util.Set;
 
 public class RemoveDuplicatesFromUnsortedLinkedList {
-	public static List<Integer> removeDuplicates(List<Integer> inputList){
+	public static List<Integer> removeDuplicates_Simple(List<Integer> inputList){
 		Set<Integer> uniqueElements = new HashSet <Integer>();
 		uniqueElements.addAll(inputList);
 		
 		List <Integer> listOfUniqueElms = new LinkedList<Integer>();
 		listOfUniqueElms.addAll(uniqueElements);
+		return listOfUniqueElms;
+	}
+	
+	public static List<Integer> removeDuplicates_Complex(List<Integer> inputList){
+		List <Integer> listOfUniqueElms = new LinkedList<Integer>();
+		for(Integer i : inputList) {
+			if(!listOfUniqueElms.contains(i)) {
+				listOfUniqueElms.add(i);
+			}
+		}
 		return listOfUniqueElms;
 	}
 }
