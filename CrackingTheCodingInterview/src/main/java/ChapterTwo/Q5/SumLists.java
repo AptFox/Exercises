@@ -18,14 +18,14 @@ import java.util.LinkedList;
  */
 public class SumLists {
 	
-	public LinkedList<Integer> findSumOfReversedLinkedLists(LinkedList<Integer> firstList, LinkedList<Integer> secondList) {
+	public static LinkedList<Integer> findSumOfReversedLinkedLists(LinkedList<Integer> firstList, LinkedList<Integer> secondList) {
 		Integer firstNum = convertReversedListToInteger(firstList);
 		Integer secondNum = convertReversedListToInteger(secondList);
 		Integer sumNum = firstNum+secondNum;
 		return convertIntegerToReversedLinkedList(sumNum);
 	}
 	
-	private Integer convertReversedListToInteger(LinkedList<Integer> list) {
+	private static Integer convertReversedListToInteger(LinkedList<Integer> list) {
 		Integer foundInt = null;
 		Iterator<Integer> listIterator = list.descendingIterator();
 		String tmpString = "";
@@ -36,11 +36,11 @@ public class SumLists {
 		return foundInt;
 	}
 	
-	private LinkedList<Integer> convertIntegerToReversedLinkedList(Integer num){
+	private static LinkedList<Integer> convertIntegerToReversedLinkedList(Integer num){
 		LinkedList<Integer> reversedList = new LinkedList<Integer>();
 		String numString = num.toString();
 		String[] numStringArr = numString.split("");
-		for(int i = numStringArr.length-1; i > 0; i++) {
+		for(int i = numStringArr.length-1; i > -1; i--) {
 			Integer tmpInt = Integer.parseInt(numStringArr[i]);
 			reversedList.add(tmpInt);
 		}
