@@ -12,6 +12,7 @@ public class StackMin {
 	private static class StackNode<Integer>{
 		private Integer data;
 		private StackNode<Integer> nextNode;
+		//adding min here allow the nodes to track the min
 		private Integer min; 
 		public StackNode(Integer data) {
 			this.data = data;
@@ -20,11 +21,6 @@ public class StackMin {
 	
 	private StackNode<Integer> topNode;
 	public Integer pop() {
-		//TODO find an elegant way of finding smallest node on removal. 
-		//if smallestNode == topNode
-			// find new smallestNode
-		//else
-			// do nothing
 		Integer item = topNode.data;
 		topNode = topNode.nextNode;
 		return item;
@@ -32,6 +28,8 @@ public class StackMin {
 	
 	public void push(Integer nodeData) {
 		StackNode<Integer> node = new StackNode<Integer>(nodeData);
+		//Based on this if statement the min value is always set on the topNode
+		// the min is shifted from node to node as stack size increases 
 		if(nodeData < topNode.min || topNode.min == null) {
 			topNode.min = nodeData;
 		}
@@ -39,7 +37,6 @@ public class StackMin {
 		node.min = topNode.min;
 		topNode = node;
 	}
-	
 	
 	public Integer min() {
 		return topNode.min;
