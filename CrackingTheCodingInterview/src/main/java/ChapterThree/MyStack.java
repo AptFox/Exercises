@@ -5,32 +5,32 @@ import java.util.EmptyStackException;
 public class MyStack<T> {
 	private static class StackNode<T>{
 		private T data;
-		private StackNode<T> next;
+		private StackNode<T> nextNode;
 		public StackNode(T data) {
 			this.data = data;
 		}
 	}
 	
-	private StackNode<T> top;
+	private StackNode<T> topNode;
 	public T pop() {
-		if (top == null) throw new EmptyStackException();
-		T item = top.data;
-		top = top.next;
+		if (topNode == null) throw new EmptyStackException();
+		T item = topNode.data;
+		topNode = topNode.nextNode;
 		return item;
 	}
 	
-	public void push(T item) {
-		StackNode<T> t = new StackNode<T>(item);
-		t.next = top;
-		top = t;
+	public void push(T nodeData) {
+		StackNode<T> node = new StackNode<T>(nodeData);
+		node.nextNode = topNode;
+		topNode = node;
 	}
 	
 	public T peek() {
-		if(top == null) throw new EmptyStackException();
-		return top.data;
+		if(topNode == null) throw new EmptyStackException();
+		return topNode.data;
 	}
 	
 	public boolean isEmpty() {
-		return top == null;
+		return topNode == null;
 	}
 }
