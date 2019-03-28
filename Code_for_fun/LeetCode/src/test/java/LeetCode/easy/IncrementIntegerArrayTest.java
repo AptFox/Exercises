@@ -25,5 +25,13 @@ class IncrementIntegerArrayTest {
 		int[] actual = IncrementIntegerArray.incrementArrayNum(num);
 		assertTrue(Arrays.equals(expected, actual));
 	}
+	
+	@Test
+	void test_MiddleIncrementNum() {
+		int[] num = {7,8,9,9};
+		int[] expected = {7,9,0,0};
+		int[] actual = IncrementIntegerArray.incrementArrayNum(num);
+		assertTrue(Arrays.equals(expected, actual));
+	}
 
 }
