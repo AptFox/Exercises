@@ -1,0 +1,7 @@
+# Ignore the following directories:
+.idea/
+node_modules/
+.DS_Store/
+
+#Ignore the following files:
+*.DS_Store
