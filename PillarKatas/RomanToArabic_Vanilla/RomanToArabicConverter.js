@@ -1,7 +1,7 @@
 let converter = {};
-var numeralMap = new Map([[undefined, ""],["I", 1],["V",5],["X",10]]);
+var numeralMap = new Map([[undefined, ""],["I", 1],["V",5],["X",10],["L",50],["C",100],["D",500],["M",1000]]);
 
-converter.convertToArabic = function(numeral) { //function name
+converter.convertToArabic = function(numeral) {
     var convertedString = numeral;
     var numeralIsDefined = typeof numeral !== 'undefined';
 
@@ -15,6 +15,7 @@ converter.convertToArabic = function(numeral) { //function name
         var numeralArray = numeral.split("");
         //convert each pos of array to arabic
         var largest = 0;
+        var smallest = numeralMap.get(numeralArray[0]);
         for(let i = 0; i < numeralArray.length; i++){
             numeralArray[i] = numeralMap.get(numeralArray[i]);
             //find largest pos
@@ -23,15 +24,10 @@ converter.convertToArabic = function(numeral) { //function name
             }
         }
         var largestPos = numeralArray.indexOf(largest);
+
         if(largestPos > 0){
             var subtractVal = numeralArray[largestPos-1];
             convertedString = largest - subtractVal;
-/*            for(let i = largestPos-1; i > 0; i--){
-                //each iteration works in two's
-                //get positive val for right pos1
-                //subtract left val from pos1
-                subtractVal -= numeralArray[i];
-            }*/
         }
         else if (largestPos < numeralArray.length){
             var addVal = numeralArray[largestPos];
