@@ -70,9 +70,21 @@ describe('RomanToArabicConverter', function() {
                 assert.strictEqual(converter.convertToArabic("MLXVI"), "1066");
             });
         });
-        describe.skip('additionAndSubtraction', function() {
+        describe('additionAndSubtraction', function() {
             it('should return 2019 when called with "MMXIX"', function() {
                 assert.strictEqual(converter.convertToArabic("MMXIX"), "2019");
+            });
+            it('should return 47 when called with "XLVII"', function() {
+                assert.strictEqual(converter.convertToArabic("XLVII"), "47");
+            });
+            it('should return 116 when called with "CXVI"', function() {
+                assert.strictEqual(converter.convertToArabic("CXVI"), "116");
+            });
+            it('should return 1120 when called with "MCXX"', function() {
+                assert.strictEqual(converter.convertToArabic("MCXX"), "1120");
+            });
+            it('should return 1914 when called with "MCMXIV"', function() {
+                assert.strictEqual(converter.convertToArabic("MCMXIV"), "1914");
             });
         });
     });
